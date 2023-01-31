@@ -1,0 +1,294 @@
+body {
+    background: url(../images/article.jpg);
+    background-size: cover;
+    min-height: 105vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding: 18px;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+    position: relative;
+}
+
+:root {
+    --color1: #459436;
+    --color2: #93CC4A;
+    --color3: #005290;
+}
+
+/* Start Landing page */
+
+.body {
+    min-height: 110vh;
+    background: url(../images/article.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    transition: 1.2s ease;
+}
+
+.header {
+    background-color: white;
+    width: 100%;
+    height: 4em;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header .overlay {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.822);
+    z-index: 3;
+    display: none;
+}
+
+.header .logo {
+    font-size: 2rem;
+    margin-left: 2%;
+    line-height: 2em;
+}
+
+.header .logo a {
+    text-decoration: none;
+    color: var(--color1);
+}
+
+.header .nav-bar {
+    list-style: none;
+    display: flex;
+}
+
+.header .nav-bar li {
+    padding: 8px;
+    margin-right: 2em;
+    text-align: center;
+    height: 3em;
+}
+
+.header .nav-bar li a {
+    line-height: 3em;
+    text-decoration: none;
+    color: var(--color1);
+    display: block;
+}
+
+.header .hamburger {
+    cursor: pointer;
+    display: none;
+    margin: 1em 3em;
+    position: relative;
+}
+
+.header .hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--color1);
+}
+
+@media (max-width:850px) {
+    .header .logo {
+        font-weight: bold;
+        margin-left: 1em;
+    }
+
+    .header .overlay.active {
+        display: block;
+    }
+
+    .header .nav-bar {
+        list-style: none;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        height: 90%;
+        position: fixed;
+        bottom: 0;
+        z-index: 10;
+        display: none;
+        padding: 0px;
+    }
+
+    .header .nav-bar.active {
+        display: flex;
+    }
+
+    .header .nav-bar li {
+        width: 80%;
+        text-align: left;
+        margin: 10px auto;
+        text-align: center;
+        background-color: whitesmoke;
+        border-radius: 5px;
+    }
+
+    .header .hamburger {
+        display: block;
+        z-index: 3;
+    }
+
+    .header .hamburger.active {
+        position: fixed;
+        right: 2px;
+    }
+
+    .header .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .header .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px)rotate(45deg);
+        background-color: white;
+    }
+
+    .header .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px)rotate(-45deg);
+        background-color: white;
+    }
+}
+
+.container {
+    z-index: 1;
+    width: 97%;
+    color: white;
+    text-align: center;
+    margin-top: .5em;
+    border-radius: 10px;
+}
+
+form {
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-color: transparent;
+}
+
+form input:focus {
+    outline: 1px solid var(--color2);
+}
+
+form textarea {
+    border-color: transparent;
+    height: 130px;
+    padding: 10px;
+    resize: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+form textarea:focus {
+    outline: 1px solid var(--color2);
+}
+
+form textarea:focus:-ms-input-placeholder {
+    opacity: 0;
+    transition: .3s;
+}
+
+form textarea:focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: .3s;
+}
+
+form input:focus:-ms-input-placeholder {
+    opacity: 0;
+    transition: .3s;
+}
+
+form input:focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: .3s;
+}
+
+form input[type="submit"] {
+    background-color: var(--color2);
+    border-color: transparent;
+    outline-style: none;
+    width: 107%;
+    cursor: pointer;
+    color: white;
+}
+
+form input[type="submit"]:active {
+    background-color: var(--color2);
+}
+
+.alert {
+    position: fixed;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.alert .message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1002;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 4px;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    min-width: 60%;
+}
+.header .translate {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+}
+.alert .leave {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    z-index: 12;
+    background-color: var(--color3);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.aler {
+    margin-top: 5em;
+    background-color: white;
+    z-index: 200;
+    position: absolute;
+    bottom: 0;
+}
